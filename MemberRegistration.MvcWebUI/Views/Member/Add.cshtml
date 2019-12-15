@@ -1,0 +1,94 @@
+﻿@model MemberRegistration.MvcWebUI.Models.MemberAddViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <title>Add</title>
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h2 style="text-align:center">Kayit formu</h2>
+            <p style="text-align:center" class="lead">Lutfen bilgilerinizi giriniz.</p>
+
+            <p class="lead"> @Html.ValidationMessage("MemberException") </p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12 order-md-1">
+                <h4 class="mb-3">Bilgileriniz</h4>
+                @using (Html.BeginForm())
+                {
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Adiniz</label>
+                            @Html.TextBoxFor(c=>c.Member.FirstName,new { @class="form-control"})
+                            @Html.ValidationMessageFor(c => c.Member.FirstName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Soyadiniz</label>
+                            @Html.TextBoxFor(c => c.Member.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.Member.LastName, "", new { @class = "text-danger" });
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="username">Tc Kimlik numaraniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"></span>
+                            </div>
+                            @Html.TextBoxFor(c => c.Member.TcNo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.Member.TcNo, "", new { @class = "text-danger" });
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email </label>
+                        @Html.TextBoxFor(c => c.Member.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Member.Email, "", new { @class = "text-danger" });
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Dogum tarihiniz</label>
+                        @Html.TextBoxFor(c => c.Member.DateOfBirth, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Member.DateOfBirth, "", new { @class = "text-danger" });
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Kayit ol</button>
+                }
+            </div>
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2017-2019 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="form-validation.js"></script>
+</body>
+
+</html>
